@@ -2,14 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			
-			Contact: [
-				{
-					name: "Mike Anamendolla",
-					address: "5842 Hillcrest Rd",
-					phone: "(870) 288-4149",
-					email: "mike.ana@example.com"
-				},
-			]
+			contacts: []
 			
 		},
 		actions: {
@@ -18,6 +11,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 
 			loadSomeData: () => {
+				console.log("load some data")
+			
+				
+			fetch("https://playground.4geeks.com/apis/fake/contact/agenda/agenda1989")
+				.then(response => response.json())
+				.then((data) => setStore({contacts:data}))
+				
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/

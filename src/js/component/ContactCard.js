@@ -5,6 +5,9 @@ import { faPencil, faTrashCan, faLocationDot, faPhone, faEnvelope } from '@forta
 
 export const ContactCard = (props) => (
 	<div className="contactsPage container">
+		<Link to="/AddContact">
+			<button className="addContact btn btn-success">Add new contact</button>
+		</Link>
 		<div className="card mb-3 d-flex mx-5">
 		<div className="row">
 			<div className="col-md-2 my-3 mx-5">
