@@ -19,11 +19,15 @@
     position: absolute;
     right: 0%;
     margin: 50px;
-    margin-right: 60px;
 }
 
 .card {
     position: absolute;
     margin-top: 100px;
     justify-content: center;
+}
+
+button {
+    background-color: white;
+    border: none;
 }
