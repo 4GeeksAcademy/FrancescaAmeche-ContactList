@@ -15,22 +15,22 @@ export const Contacts = () => {
 				</Link>
 						{store.contacts.map((item, index) => {
 							return (
-								<div className="card mb-3 d-flex mx-5" key={index}>
-									<div className="row">
-										<div className="col-md-2 my-3 mx-5">
-										<img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" className="img-fluid rounded-circle" alt="..."/>
+								<div className="contactGroup" key={index}>
+									<div className="contact">
+										<div className="image">
+										<img src="https://picsum.photos/id/64/150"/>
 										</div>
-										<div className="col-md-9">
-											<div className="card-body">
-												<h5 className="card-title">{item.full_name}</h5>
-												<p className="card-text"><FontAwesomeIcon icon={faLocationDot} />{item.address}</p>
-												<p className="card-text"><FontAwesomeIcon icon={faPhone} />{item.phone}</p>
-												<p className="card-text"><FontAwesomeIcon icon={faEnvelope} />{item.email}</p>
+										<div className="information">
+											<div>
+												<h5>{item.full_name}</h5>
+												<p><FontAwesomeIcon icon={faLocationDot} /> {item.address}</p>
+												<p><FontAwesomeIcon icon={faPhone} /> {item.phone}</p>
+												<p><FontAwesomeIcon icon={faEnvelope} /> {item.email}</p>
 											</div>
-										<div className="icons col-md-1">
-											<button><FontAwesomeIcon icon={faPencil} className="pencil"/></button>
-											<button onClick={() => actions.deleteContact(item.id)}><FontAwesomeIcon icon={faTrashCan} className="trash"/></button>
 										</div>
+										<div className="editContact">
+											<button onClick={() => actions.updateContact(item.id)}><FontAwesomeIcon icon={faPencil} className="pencil"/></button>
+											<button onClick={() => actions.deleteContact(item.id)}><FontAwesomeIcon icon={faTrashCan} className="trash"/></button>
 										</div>
 									</div>
 								</div>

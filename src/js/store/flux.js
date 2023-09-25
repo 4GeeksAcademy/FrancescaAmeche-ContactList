@@ -3,28 +3,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			
 			contacts: [],
-			new: []
+			
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 
-			createContact: () => {
-				const store = getStore();
-				console.log(store.new)
+			createContact: (contact) => {
+				
 				fetch("https://playground.4geeks.com/apis/fake/contact/", {
-					method: "PUT",
-					body: JSON.stringify(store.new),
+					method: "POST",
+					body: JSON.stringify(contact),
 					headers: {
 						"Content-Type": "application/json"
 					}
 				})
 				.then((response) => response.json())
 				.then((data) => console.log(data))
-				.then(() => {
-					fetch("https://playground.4geeks.com/apis/fake/contact/agenda/agenda1989")
-					.then((response) => response.json())
-					.then((data) => setStore({ contacts: data}))
-				});
 			},
 
 			
@@ -44,6 +38,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 						.then((data) => setStore({ contacts: data}))
 					});
 			},
+
+			// updateContact: (indexUpdate) => {
+			// 	console.log(indexUpdate)
+			// 	let requestOptions = {
+			// 		method: 'PUT',
+			// 		redirect: 'follow',
+			// 		body: JSON.stringify(contact),
+			// 		headers: {
+			// 			"Content-Type": "application/json"
+			// 		}
+			// 	  };
+				  
+			// 	  fetch("https://playground.4geeks.com/apis/fake/contact/" + indexUpdate, requestOptions)
+			// 		.then(response => response.json())
+			// 		.then(result => console.log(result))
+			// 		.then(() => {
+			// 			fetch("https://playground.4geeks.com/apis/fake/contact/agenda/agenda1989")
+			// 			.then((response) => response.json())
+			// 			.then((data) => setStore({ contacts: data}))
+			// 		});
+			// },
+
 
 			loadSomeData: () => {
 				console.log("load some data")
