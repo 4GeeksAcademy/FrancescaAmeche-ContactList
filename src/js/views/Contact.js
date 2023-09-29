@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Contact.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,10 +8,7 @@ import { Context } from "../store/appContext";
 
 export const Contacts = () => {
 	const { store, actions } = useContext(Context);
-	// useEffect(() => {
-			
-	// 	actions.loadSomeData(false);
-	// }, []);
+	
 		return (
 			<div className="contactsPage container">
 				<Link to="/Add">
@@ -33,11 +30,9 @@ export const Contacts = () => {
 											</div>
 										</div>
 										<div className="editContact">
-											{/* <button onClick={() => actions.updateContact(item.id)}><FontAwesomeIcon icon={faPencil} className="pencil"/></button> */}
 											<Link to={"/Edit/"+ item.id}>
 											<button><FontAwesomeIcon icon={faPencil} className="pencil"/></button>
 											</Link>
-											
 											<button onClick={() => actions.deleteContact(item.id)}><FontAwesomeIcon icon={faTrashCan} className="trash"/></button>
 										</div>
 									</div>
