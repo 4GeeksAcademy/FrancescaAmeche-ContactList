@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			
 			contacts: [],
+			current_contact: null
 			
 		},
 		actions: {
@@ -39,15 +40,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 
-			loadSomeData: () => {
-				
-				fetch("https://playground.4geeks.com/apis/fake/contact/agenda/agenda1989")
+			loadSomeData: (id) => {
+				let path = ""
+				id ? path="/"+id : path="/agenda/agenda1989"
+
+				fetch("https://playground.4geeks.com/apis/fake/contact" + path)
 					.then(response => response.json())
 					.then((data) => {
 						console.log(data)
-						setStore({contacts:data})
-					})
-			}
+						id==false ? setStore({contacts:data}) : setStore({current_contact:data})
+						console.log(contacts)
+			})}
 		}
 	};
 };
