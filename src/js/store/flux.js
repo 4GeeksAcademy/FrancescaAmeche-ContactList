@@ -49,7 +49,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((data) => {
 						console.log(data)
 						id==false ? setStore({contacts:data}) : setStore({current_contact:data})
-						console.log(contacts)
+						
 			})}
 		}
 	};
